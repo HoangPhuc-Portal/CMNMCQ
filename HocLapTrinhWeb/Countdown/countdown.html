@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đếm Ngược - Chúc Mừng Năm Mới</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Nút điều khiển nhạc -->
+    <button class="music-control" id="musicControl" title="Bật/Tắt nhạc">
+      🔊
+    </button>
+
+    <!-- Nhạc nền -->
+    <audio id="backgroundMusic" autoplay loop>
+      <source src="../audio/NhacNen.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Hiệu ứng nền -->
+    <div class="particles-container" id="particles"></div>
+    <div id="stars"></div>
+
+    <div class="light-ray" style="animation-delay: 0s"></div>
+    <div class="light-ray" style="animation-delay: 0.5s"></div>
+    <div class="light-ray" style="animation-delay: 1s"></div>
+    <div class="light-ray" style="animation-delay: 1.5s"></div>
+
+    <div class="snow-container" id="snow"></div>
+
+    <!-- Container cho mưa ảnh -->
+    <div class="image-rain-container" id="imageRain"></div>
+
+    <!-- Đếm ngược -->
+    <div class="countdown-container" id="countdownContainer">
+      <div class="number-glow"></div>
+      <div class="countdown-number" id="countdownNumber">3</div>
+    </div>
+
+    <!-- THIỆP THỨ NHẤT -->
+    <div class="card" id="card1">
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <h1>🎊 Năm Mới Đang Đến 🎊</h1>
+      <div class="message">
+        ✨ Chúc bạn năm mới thật nhiều sức khỏe, niềm vui và lúc nào cũng tràn
+        đầy năng lượng tích cực ✨<br />
+        💖 Mong rằng năm mới sẽ mang đến cho bạn nhiều thành công, học tập –
+        công việc hanh thông và đạt được mọi mục tiêu đã đặt ra 💖<br />
+        🌟 Chúc năm mới an khang – hạnh phúc, gia đình bình an, tiền vào như
+        nước và nụ cười luôn nở trên môi🌟
+      </div>
+      <button onclick="showNextCard()">🎉 Tiếp tục hành trình</button>
+    </div>
+
+    <!-- THIỆP THỨ HAI -->
+    <div class="card" id="card2">
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <h1>💝 Lời Chúc Đặc Biệt 💝</h1>
+      <div class="message">
+        🌈 Chúc bạn luôn được bao quanh bởi yêu thương, những điều tốt đẹp và
+        thật nhiều khoảnh khắc đáng nhớ 🌈<br />
+        💫 Mong rằng mọi ước mơ của bạn sẽ dần trở thành hiện thực, mỗi ngày
+        trôi qua đều là một ngày ý nghĩa và hạnh phúc 💫<br />
+        🎁 Chúc bạn luôn mỉm cười, vững tin vào bản thân và gặp may mắn trên mọi
+        chặng đường phía trước🎁<br />
+      </div>
+      <button onclick="showNextCard()">✨ Xem tiếp</button>
+    </div>
+
+    <!-- THIỆP THỨ BA -->
+    <div class="card" id="card3">
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <h1>🎯 Mục Tiêu Năm Mới 🎯</h1>
+      <div class="message">
+        💪 Chúc bạn năm mới đặt mục tiêu rõ ràng, kiên trì theo đuổi và từng
+        bước chinh phục những điều mình mong muốn 💪<br />
+        🚀 Mong rằng mọi kế hoạch đều thuận lợi, nỗ lực được đền đáp và thành
+        công sẽ mỉm cười với bạn🚀<br />
+        🏆 Chúc bạn luôn tự tin – quyết tâm – bứt phá, biến năm mới thành một
+        hành trình thật đáng tự hào 🏆
+      </div>
+      <button onclick="showNextCard()">✨ Xem tiếp</button>
+    </div>
+
+    <!-- THIỆP THỨ TƯ -->
+    <div class="card" id="card4">
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <h1>💎 Sức Khỏe & Hạnh Phúc 💎</h1>
+      <div class="message">
+        🌱 Chúc bạn năm mới luôn khỏe mạnh, tinh thần lạc quan và tràn đầy năng
+        lượng mỗi ngày🌱<br />
+        😊 Mong rằng hạnh phúc sẽ hiện diện trong từng khoảnh khắc, từ những
+        điều nhỏ bé đến những niềm vui lớn lao 😊<br />
+        💫 Chúc bạn có một năm mới bình an – an nhiên – viên mãn, sống chậm lại
+        để yêu thương bản thân nhiều hơn 💫<br />
+      </div>
+      <button onclick="showNextCard()">✨ Xem tiếp</button>
+    </div>
+
+    <!-- THIỆP THỨ NĂM -->
+    <div class="card" id="card5">
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <h1>🌈 Tình Yêu & Tình Bạn 🌈</h1>
+      <div class="message">
+        💕 Chúc bạn luôn có tình yêu ấm áp và những mối quan hệ chân thành, nơi
+        bạn được là chính mình 💕<br />
+        🤝 Mong rằng tình bạn của bạn ngày càng bền chặt, cùng nhau chia sẻ niềm
+        vui, vượt qua mọi khó khăn 🤝<br />
+        ❤️ Chúc mọi mối duyên trong cuộc sống của bạn đều đẹp đẽ – ý nghĩa – lâu
+        dài, mang lại thật nhiều nụ cười. ❤️
+      </div>
+      <button onclick="showNextCard()">✨ Xem tiếp</button>
+    </div>
+
+    <!-- THIỆP THỨ SÁU -->
+    <div class="card" id="card6">
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <h1>🎓 Học Hỏi & Phát Triển 🎓</h1>
+      <div class="message">
+        📚 Chúc bạn năm mới luôn ham học hỏi, tiếp thu thêm nhiều kiến thức mới
+        và không ngừng hoàn thiện bản thân📚<br />
+        🌟 Mong rằng mỗi ngày trôi qua đều là một bước phát triển tích cực, kỹ
+        năng vững vàng hơn và tư duy ngày càng rộng mở 🌟<br />
+        💡 Chúc bạn luôn kiên trì – sáng tạo – tiến bộ, biến nỗ lực hôm nay
+        thành thành công của ngày mai 💡
+      </div>
+      <button onclick="showNextCard()">✨ Xem tiếp</button>
+    </div>
+
+    <!-- THIỆP THỨ BẢY - THIỆP CUỐI CÙNG -->
+    <div class="card" id="card7">
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <div class="card-sparkle"></div>
+      <h1>🌟 Cảm Ơn Bạn 🌟</h1>
+      <div class="message">
+        💖 Cảm ơn bạn vì đã luôn đồng hành, chia sẻ và mang đến thật nhiều điều
+        tích cực trong cuộc sống💖<br />
+        🎊 Chúc bạn luôn bình an, gặp nhiều may mắn và nhận lại thật nhiều yêu
+        thương như cách bạn đã cho đi🎊<br />
+        ✨ Mong rằng chặng đường phía trước của bạn sẽ luôn thuận lợi – rực rỡ –
+        tràn đầy niềm vui ✨<br />
+      </div>
+      <button onclick="finishJourney()">🎉 Kết thúc</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

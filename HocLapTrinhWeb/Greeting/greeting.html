@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chào Mừng</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="greeting.css" />
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+    <div class="floating-hearts" id="hearts"></div>
+    <div class="falling-petals" id="petals"></div>
+
+    <!-- Ảnh xung quanh 4 phía -->
+    <div class="surrounding-images">
+      <!-- Phía trên -->
+      <img src="../img/q1.jpg" alt="Image 1" class="surround-img top-left" />
+      <img src="../img/q2.jpg" alt="Image 2" class="surround-img top-right" />
+
+      <!-- Phía trái -->
+      <img src="../img/q3.jpg" alt="Image 3" class="surround-img left-top" />
+      <img src="../img/q4.jpg" alt="Image 4" class="surround-img left-bottom" />
+
+      <!-- Phía phải -->
+      <img src="../img/q5.jpg" alt="Image 5" class="surround-img right-top" />
+      <img
+        src="../img/q1.jpg"
+        alt="Image 6"
+        class="surround-img right-bottom"
+      />
+
+      <!-- Phía dưới -->
+      <img src="../img/q4.jpg" alt="Image 7" class="surround-img bottom-left" />
+      <img
+        src="../img/q2.jpg"
+        alt="Image 8"
+        class="surround-img bottom-center"
+      />
+      <img
+        src="../img/q3.jpg"
+        alt="Image 9"
+        class="surround-img bottom-right"
+      />
+    </div>
+
+    <div class="center-gift">
+      <div class="gift-decoration">
+        <img src="../img/may.png" alt="Cloud" class="cloud cloud-1" />
+        <img src="../img/may.png" alt="Cloud" class="cloud cloud-2" />
+        <img src="../img/linh lan.png" alt="Lily" class="lily lily-left" />
+        <img src="../img/linh lan.png" alt="Lily" class="lily lily-right" />
+        <img
+          src="../img/hopQua.png"
+          alt="Hộp quà"
+          class="gift-button"
+          id="giftBtn"
+        />
+      </div>
+      <div class="beating-heart">💖</div>
+    </div>
+
+    <button class="continue-button" id="continueBtn">Tiếp tục</button>
+
+    <audio id="bgMusic" loop autoplay>
+      <source src="../audio/tet binh an.mp3" type="audio/mpeg" />
+      Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+
+    <script src="greeting.js"></script>
+  </body>
+</html>
