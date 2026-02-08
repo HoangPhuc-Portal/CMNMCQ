@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎆 Chúc Mừng Năm Mới 2026 🎆</title>
+    <link rel="stylesheet" href="firework.css" />
+  </head>
+  <body>
+    <!-- Section 1: Video giới thiệu -->
+    <div id="introSection">
+      <video id="introVideo" autoplay muted playsinline>
+        <source src="../video/2026.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Section 2: Ảnh nền + Carousel + Audio -->
+    <div id="mainSection">
+      <img id="backgroundImg" src="../img/background2.jpg" alt="Background" />
+
+      <!-- Carousel 3D xoay tròn -->
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-item">
+            <img src="../img/q1.jpg" alt="Ảnh 1" />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/q1.jpg" alt="Ảnh 2" />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/q2.jpg" alt="Ảnh 3" />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/q3.jpg" alt="Ảnh 4" />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/q4.jpg" alt="Ảnh 5" />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/q5.jpg" alt="Ảnh 6" />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/q2.jpg" alt="Ảnh 7" />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/q3.jpg" alt="Ảnh 8" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio Player -->
+      <div class="audio-container">
+        <div class="audio-title">
+          🎵 Lời chúc năm mới, bạn hãy nghe hết lời chúc này để tự động chuyển
+          sang phần cuối nhé 🎵
+        </div>
+        <audio id="audioPlayer" controls>
+          <source src="../audio/cmnm.mp3" type="audio/mpeg" />
+          Trình duyệt của bạn không hỗ trợ audio.
+        </audio>
+      </div>
+    </div>
+
+    <!-- Section 3: Video đếm ngược -->
+    <div id="countdownSection">
+      <video id="countdownVideo" muted playsinline>
+        <source src="../video/CQ.mp4" type="video/mp4" />
+        Trình duyệt của bạn không hỗ trợ video.
+      </video>
+    </div>
+
+    <!-- Section 4: Pháo hoa -->
+    <div id="fireworksSection">
+      <div class="title">🎆 CHÚC MỪNG NĂM MỚI 2026 🎆</div>
+      <div class="subtitle">✨ Phúc Lộc Thọ - An Khang Thịnh Vượng ✨</div>
+      <div class="controls">
+        <button id="pauseBtn">⏸ Tạm dừng</button>
+      </div>
+      <canvas id="canvas"></canvas>
+
+      <!-- Nhạc nền pháo hoa (ẩn) -->
+      <audio id="fireworkMusic" loop>
+        <source src="../audio/nhacnenphaohoa.mp3" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ audio.
+      </audio>
+    </div>
+
+    <script src="firework.js"></script>
+  </body>
+</html>

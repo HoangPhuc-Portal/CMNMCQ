@@ -1,0 +1,488 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  overflow: hidden;
+  font-family: "Arial Black", sans-serif;
+}
+
+/* ==================== NÚT ĐIỀU KHIỂN NHẠC ==================== */
+.music-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(255, 20, 147, 0.5);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-control:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 20, 147, 0.7);
+}
+
+.music-control:active {
+  transform: scale(0.95);
+}
+
+.music-control.muted {
+  background: linear-gradient(135deg, #666, #444);
+  opacity: 0.7;
+}
+
+/* ==================== ĐẾM NGƯỢC ==================== */
+.countdown-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  transition: opacity 1s ease;
+}
+
+.countdown-number {
+  font-size: 300px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  position: relative;
+  animation: scaleIn 1s ease-out;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.number-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.3) 0%,
+    transparent 70%
+  );
+  animation: glowPulse 1s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* ==================== PARTICLES ==================== */
+.particles-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 3s infinite;
+}
+
+.particle.gold {
+  background: radial-gradient(
+    circle,
+    #ffd700 0%,
+    #ffed4e 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 20px #ffd700;
+}
+
+.particle.red {
+  background: radial-gradient(
+    circle,
+    #ff4444 0%,
+    #ff6666 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 20px #ff4444;
+}
+
+.particle.white {
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #cccccc 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 15px #ffffff;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(var(--x-move)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ==================== SAO NHẤP NHÁY ==================== */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px white;
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* ==================== TIA SÁNG XOAY ==================== */
+.light-ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(255, 215, 0, 0.8), transparent);
+  transform-origin: top center;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* ==================== TUYẾT RƠI ==================== */
+.snow-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 50;
+  transition: opacity 1s ease;
+}
+
+.snow {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation:
+    snowFall 5s linear infinite,
+    snowTwinkle 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(-10px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(var(--x-move));
+    opacity: 0;
+  }
+}
+
+@keyframes snowTwinkle {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  }
+}
+
+/* ==================== MƯA ẢNH ==================== */
+.image-rain-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 45;
+  overflow: hidden;
+}
+
+.falling-image {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+  animation: imageFall 8s linear infinite;
+  opacity: 0;
+  border: 3px solid rgba(255, 182, 217, 0.6);
+}
+
+@keyframes imageFall {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(100vh) translateX(var(--x-drift))
+      rotate(var(--rotate-angle));
+    opacity: 0;
+  }
+}
+
+/* ==================== THIỆP ==================== */
+.card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 90%;
+  max-width: 600px;
+  background: linear-gradient(135deg, #ffeef8 0%, #ffd5e5 50%, #ffb3d9 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+  padding: 40px;
+  z-index: 200;
+  opacity: 0;
+  transition: all 1s ease;
+  font-family: "Dancing Script", cursive;
+  overflow-y: auto;
+  max-height: 90vh;
+  text-align: center;
+}
+
+.card.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Hiệu ứng flip 3D cho card */
+.card.flip-out {
+  animation: flipOut 0.8s ease-in forwards;
+}
+
+.card.flip-in {
+  animation: flipIn 0.8s ease-out forwards;
+}
+
+@keyframes flipOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8) rotateY(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.card h1 {
+  text-align: center;
+  color: #ff1493;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(255, 20, 147, 0.5);
+}
+
+.card .message {
+  color: #ff1493;
+  font-size: 1.8em;
+  line-height: 1.8;
+  margin: 30px 0;
+  text-shadow: 0 1px 2px rgba(255, 20, 147, 0.3);
+  font-weight: 600;
+}
+
+.card button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 15px 40px;
+  background: linear-gradient(45deg, #ff9ec8, #ffb3d9);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+  transition: all 0.3s ease;
+  font-family: "Dancing Script", cursive;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.6);
+}
+
+.card-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffd700;
+  animation: sparkleAnim 1.5s infinite;
+}
+
+.card-sparkle:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.card-sparkle:nth-child(2) {
+  top: 20%;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+.card-sparkle:nth-child(3) {
+  bottom: 30%;
+  left: 5%;
+  animation-delay: 0.6s;
+}
+.card-sparkle:nth-child(4) {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 0.9s;
+}
+
+@keyframes sparkleAnim {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .countdown-number {
+    font-size: 200px;
+  }
+  .card {
+    width: 90%;
+    padding: 25px;
+  }
+  .card h1 {
+    font-size: 2em;
+  }
+  .card .message {
+    font-size: 1.4em;
+  }
+  .card button {
+    font-size: 1.1em;
+    padding: 12px 30px;
+  }
+  .music-control {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    top: 15px;
+    right: 15px;
+  }
+}
